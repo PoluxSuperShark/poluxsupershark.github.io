@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erreur 404 - Page non trouvée</title>
+    <title>Erreur 404 - Page non trouvée | PoluxSuperShark</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: #0a6a7a;
+            color: black;
             text-align: center;
             padding: 50px;
         }
         h1 {
-            font-size: 100px;
-            color: #e74c3c;
+            font-size: 7rem;
+            color: red;
             margin-bottom: 20px;
         }
         p {
-            font-size: 20px;
+            font-size: 2rem;
             margin-bottom: 30px;
         }
         a {
             font-size: 18px;
-            color: #3498db;
+            color: white;
             text-decoration: none;
             padding: 10px 20px;
-            border: 2px solid #3498db;
+            border: 2px solid black;
             border-radius: 5px;
+            background-color: black;
         }
         a:hover {
-            background-color: #3498db;
-            color: white;
+            background-color: white;
+            color: black;
+            transition: .3s ease-out;
         }
         .container {
             display: flex;
@@ -39,13 +41,33 @@
             align-items: center;
             flex-direction: column;
         }
+        .flex {
+            display: flex;
+            border-top: solid black;
+            padding-top: 1.5rem;
+        }.flex a {
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>404</h1>
-        <p>Oups ! La page que tu cherches n'existe pas ou a été déplacée.</p>
-        <a href="https://poluxsupershark.github.io">Retour à l'accueil</a>
+        
+        <h1>Erreur 404 - Page introuvable</h1>
+
+        <p>
+            Oups ! La page que tu cherches n'existe pas ou a été déplacée.
+            <br> Essayez de taper une URL différémente ou
+        </p>
+
+        <div class="flex">
+            <a href="https://poluxsupershark.github.io">Retour à l'accueil</a>
+            <a href="https://discord.gg/ac8umUZYAW" target="_blank">Rejoindre le Discord</a>
+        </div>
+
     </div>
+
 </body>
 </html>
