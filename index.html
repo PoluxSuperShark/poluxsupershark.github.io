@@ -4,16 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link rel="stylesheet" href="./assets/styles/index.pages.css">
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
     <title>Bienvenue dans le site officiel de PoluxSuperShark !</title>
 </head>
+
 <body>
     
     <main>
-        
+
+        <div id="hero">
+            <h1>Bienvenue dans le site officiel de <code>PoluxSuperShark</code></h1>
+            <p><code>PoluxSuperShark</code> est un projet de monde RP Minecraft avec des trains et de beaux builds !</p>
+            <img src="" alt="Wallpaper of PoluxSuperShark">
+        </div>
+    
     </main>
+
+    <div class="alert-banner">
+        <div class="alert-title" id="alert-title">Alerte Importante</div>
+        <div class="alert-content" id="alert-content">Chargement des informations...</div>
+    </div>
+
     
     <script src="/assets/script.js"></script>
+    <script>
+        // Liste des alertes avec un titre et un message
+        const alerts = [
+            { title: "ElSombre",        content: "Un pédophile du nom de ElSombre est recherché par la police de PoluxSuperShark. Il est accusé également de drague sur la reine du serveur" },
+            { title: "Groupes Discord", content: "La fin de la guerre entre les groupes Discord et PoluxSuperShark ont été actés le 06/02/2024 à 18h17." },
+            { title: "Omniscients",     content: "Omniscients est actuellement recherché par la police pour harcèlement sur Discord" },
+        ];
+
+        const titleElement = document.getElementById("alert-title");
+        const contentElement = document.getElementById("alert-content");
+
+        function changeAlert() {
+            // Sélection aléatoire d'une alerte
+            const randomAlert = alerts[Math.floor(Math.random() * alerts.length)];
+
+            // Ajoute un effet de disparition en fondu
+            titleElement.classList.add("fade");
+            contentElement.classList.add("fade");
+
+            setTimeout(() => {
+                // Change le contenu après la disparition
+                titleElement.textContent = randomAlert.title;
+                contentElement.textContent = randomAlert.content;
+
+                // Réapparaît en fondu
+                titleElement.classList.remove("fade");
+                contentElement.classList.remove("fade");
+            }, 500); // Temps de transition (doit être égal au CSS)
+        }
+
+        // Changer l'alerte toutes les 15 secondes
+        setInterval(changeAlert, 15000);
+
+        // Afficher une première alerte immédiatement
+        changeAlert();
+    </script>
 
 </body>
 </html>
