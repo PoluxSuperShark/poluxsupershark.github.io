@@ -59,8 +59,8 @@ header li a {
     text-decoration: none;
 }
 
-@media screen and (max-with: 950px) {
-    nav {
+@media screen and (min-with: 850px) {
+    header nav {
         display: none;
     }
 }
