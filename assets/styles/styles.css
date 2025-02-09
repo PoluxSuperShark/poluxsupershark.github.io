@@ -116,3 +116,9 @@ footer {
 .footer-section ul li a:hover {
     text-decoration: underline;
 }
+
+footer .flexlinks a.link {
+    text-decoration: underline;
+    border: none;
+    background-color: transparent;
+}
