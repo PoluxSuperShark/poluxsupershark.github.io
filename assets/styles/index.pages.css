@@ -1,3 +1,21 @@
+@import "./styles.css";
+
+/* Hero */
+#hero {
+    background-color: #333333;
+} #hero * {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 1rem;
+} #hero code {
+    color: red;
+} #hero h1 {
+    padding-top: 2rem;
+}
+
+
+
+/* Actualités */
 .alert-banner {
     width: 98%;
     padding: 15px;
@@ -25,14 +43,54 @@
 
 
 
-#hero {
-    background-color: #333333;
-} #hero * {
-    color: #ffffff;
-    text-align: center;
-    margin-top: 1rem;
-} #hero code {
-    color: red;
-} #hero h1 {
-    padding-top: 2rem;
+/* Grilles  */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.grid-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.grid-item h2 {
+    margin-top: 0;
+    color: #3498db;
+    font-size: 1.5em;
+}
+
+.grid-item p {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .grid-item {
+        padding: 20px;
+    }
+}
+
+/* Division de section de page  */
+.divider {
+    border: solid black;
 }
