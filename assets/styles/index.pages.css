@@ -1,5 +1,7 @@
 @import "./styles.css";
 
+h2, h3, h4, h5, h6 { color: blue; }
+
 /* Hero */
 #hero {
     background-color: #333333;
@@ -11,6 +13,19 @@
     color: red;
 } #hero h1 {
     padding-top: 2rem;
+}
+
+#hero a.site_name_url {
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-left: 16px;
+    padding: 1rem;
+    border: solid blue;
+    background-color: blue;
+    border-radius: 10px;
+} #hero a.site_name_url:hover {
+    color: blue;
+    text-decoration: underline;
 }
 
 
@@ -93,4 +108,5 @@
 /* Division de section de page  */
 .divider {
     border: solid black;
+    border-radius: 5px;
 }
