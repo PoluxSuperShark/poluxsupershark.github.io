@@ -105,6 +105,40 @@ h2, h3, h4, h5, h6 { color: blue; }
     }
 }
 
+
+
+/* Social Media  */
+.account {
+    border: solid;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+    background-color: #333;
+} .account i {
+    color: blue;
+    margin-right: 1rem;
+    padding: 1rem;
+} .account h3 {
+    width: 15%;
+    color: blue;
+    border-bottom: solid blue;
+} .account * {
+    color: white;
+} .account a {
+    text-decoration: underline;
+}
+
+.account:hover {
+    background-color: rgb(243,243,243);
+    transition: .850s;
+} .account:hover a {
+    color: black;
+}
+
+
+
 /* Division de section de page  */
 .divider {
     border: solid black;
