@@ -59,6 +59,12 @@ header li a {
     text-decoration: none;
 }
 
+@media screen and (max-with: 950px) {
+    nav {
+        display: none;
+    }
+}
+
 
 
 
