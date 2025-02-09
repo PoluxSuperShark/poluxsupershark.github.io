@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./assets/styles/index.pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <meta name="description" content="">
     <title>Bienvenue dans le site officiel de PoluxSuperShark !</title>
 </head>
 
@@ -145,6 +146,9 @@
                 </p>
             </div>
         </div>
+        <footer>
+            <p>Copyright &copy; 2023 - <span id="year"></span> PoluxSuperShark. Tous droits réservés.</p>
+        </footer>
     </footer>
     
 
@@ -157,16 +161,19 @@
             once: true
         });
 
+        // Insère l'année actuelle dans le span avec l'ID 'year'
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+
         // Liste des alertes avec un titre et un message
         const alerts = [
-        /*  001  */   { title: "ElSombre",        content: "Un pédophile du nom de ElSombre est recherché par la police de PoluxSuperShark. Il est accusé également de drague sur la reine du serveur" },
+        /*  001  */   { title: "ElSombre",        content: "ElSombre accusé de drague enver la reine du serveur, il encourt 15.000$ d'amende (justice)" },
         /*  002  */   { title: "Dollar Group",    content: "La fin de la guerre entre les groupes Discord et PoluxSuperShark ont été actés le 06/02/2024 à 18h17." },
         /*  003  */   { title: "Omniscients",     content: "Omniscients est actuellement recherché par la police pour harcèlement sur Discord" },
         /*  004  */   { title: "L'une 91",        content: "Le prochain réseau de transports s'ouvrira le 14/02/2027 à L'une 91 City, annonce PoluxSuperShark" },
         /*  005  */   { title: "L'une 91",        content: "Elle annonce également faire un dépôt de plainte contre ElSombre en raison de harcèlement et d'atteinte à l'article 49.3.2" },
         /*  006  */   { title: "15hx",            content: "La 15hx recherchée par la police en raisons de harcèlement et de menaces." },
         /*  007  */   { title: "Sky",             content: "400 personnes inquiètes après avoir vu leur pseudo changer sur Discord" },
-        /*  008  */   { title: "Polux / L'une 91",content: "Le couple emménagera d'ici juin 2025 ensemble, a annoncé Polux." },
         ];
 
         // Obtenir des éléments
