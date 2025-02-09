@@ -148,51 +148,8 @@
     
 
     <script src="/assets/script.js"></script>
+    <script src="./assets/js/index.pages.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    </script>
-    <script>
-        // Liste des alertes avec un titre et un message
-        // Sélection aléatoire d'une alerte
-        // Ajoute un effet de disparition en fondu
-        // Change le contenu après la disparition
-        // Réapparaît en fondu
-        // Changer l'alerte toutes les 15 secondes
-        // Afficher une première alerte immédiatement
-        const alerts = [
-            { title: "ElSombre",        content: "Un pédophile du nom de ElSombre est recherché par la police de PoluxSuperShark. Il est accusé également de drague sur la reine du serveur" },
-            { title: "Dollar Group",    content: "La fin de la guerre entre les groupes Discord et PoluxSuperShark ont été actés le 06/02/2024 à 18h17." },
-            { title: "Omniscients",     content: "Omniscients est actuellement recherché par la police pour harcèlement sur Discord" },
-            { title: "L'une 91",        content: "Le prochain réseau de transports s'ouvrira le 14/02/2027 à L'une 91 City, annonce PoluxSuperShark" },
-            { title: "L'une 91",        content: "Elle annonce également faire un dépôt de plainte contre ElSombre en raison de harcèlement et d'atteinte à l'article 49.3.2" },
-        ];
-
-        const titleElement = document.getElementById("alert-title");
-        const contentElement = document.getElementById("alert-content");
-
-        function changeAlert() {
-            const randomAlert = alerts[Math.floor(Math.random() * alerts.length)];
-
-            titleElement.classList.add("fade");
-            contentElement.classList.add("fade");
-
-            setTimeout(() => {
-                titleElement.textContent = randomAlert.title;
-                contentElement.textContent = randomAlert.content;
-
-                titleElement.classList.remove("fade");
-                contentElement.classList.remove("fade");
-            }, 500); // Temps de transition (doit être égal au CSS)
-        }
-
-        setInterval(changeAlert, 15000);
-
-        changeAlert();
-    </script>
 
 </body>
 </html>
