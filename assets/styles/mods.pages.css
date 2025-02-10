@@ -1,0 +1,20 @@
+@import "./styles.css";
+
+div.infos p a {
+    text-decoration: underline;
+    color: blue;
+}
+
+.link_downloads li {
+    margin-left: -40px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: solid 1px;
+    border-radius: 8px;
+} .link_downloads li:hover {
+    cursor: pointer;
+    background-color: #333333;
+} .link_downloads li:hover a {
+    color: white;
+    text-decoration: underline;
+}
