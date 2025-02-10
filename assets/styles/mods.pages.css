@@ -1,10 +1,12 @@
 @import "./styles.css";
 
+/* Links in infos */
 div.infos p a {
     text-decoration: underline;
     color: blue;
 }
 
+/* Downloads links styles  */
 .link_downloads li {
     margin-left: -40px;
     margin-top: 2rem;

@@ -1,5 +1,6 @@
-@import "./styles.css";
+@import "./styles.css"; /* Import styles */
 
+/* Titles */
 h2, h3, h4, h5, h6 { color: blue; }
 
 /* Hero */
@@ -14,7 +15,6 @@ h2, h3, h4, h5, h6 { color: blue; }
 } #hero h1 {
     padding-top: 2rem;
 }
-
 #hero a.site_name_url {
     text-decoration: none;
     font-size: 1.5rem;
@@ -30,7 +30,7 @@ h2, h3, h4, h5, h6 { color: blue; }
 
 
 
-/* Actualités */
+/* Medias */
 .alert-banner {
     width: 98%;
     padding: 15px;
@@ -58,19 +58,17 @@ h2, h3, h4, h5, h6 { color: blue; }
 
 
 
-/* Grilles  */
+/* Grids  */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
-
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
-
 .grid-item {
     background-color: #fff;
     border-radius: 10px;
@@ -78,23 +76,21 @@ h2, h3, h4, h5, h6 { color: blue; }
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
-
 .grid-item:hover {
+    z-index: 0; /* This can't fix the bug that's the card is on foreground. */
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
-
 .grid-item h2 {
     margin-top: 0;
-    color: #3498db;
+    color: blue;
     font-size: 1.5em;
 }
-
 .grid-item p {
     color: #7f8c8d;
     line-height: 1.6;
 }
-
+/* RESPONSIVE CARDS  */
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -129,7 +125,7 @@ h2, h3, h4, h5, h6 { color: blue; }
 } .account a {
     text-decoration: underline;
 }
-
+/* Social media account hover part */
 .account:hover {
     background-color: rgb(243,243,243);
     transition: .850s;
@@ -139,7 +135,15 @@ h2, h3, h4, h5, h6 { color: blue; }
 
 
 
-/* Division de section de page  */
+/* Transports Networks
+(Polux & L'une 91) */
+.transports-network {
+    color: blue;
+    text-align: center;
+}
+
+
+/* Page divider */
 .divider {
     border: solid black;
     border-radius: 5px;

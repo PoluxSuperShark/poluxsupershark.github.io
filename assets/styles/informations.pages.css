@@ -1,5 +1,6 @@
 @import "./styles.css";
 
+/* Introduction context */
 p.intro {
     font-weight: bold;
     } p.text_infos {
@@ -8,7 +9,7 @@ p.intro {
     border-left: solid blue;
 }
 
-/* ALERTE INFO  */
+/* ALERTE INFO in red and centered  */
 .urgent {
     background-color: red;
     padding-top: 1rem;
@@ -16,14 +17,14 @@ p.intro {
     text-align: center;
 }
 
-/* Nom de l'éditeur en bleu et souligné */
+/* Editor name underlined */
 .editor {
     color: blue;
     text-decoration: underline;
     font-family: 'Times New Roman', Times, serif;
 }
 
-/* Division de section de page (Intensité de 91, comme L'une 91)*/
+/* Page divider (intensity of 91 like L'une 91 pseudo) */
 .divider {
     border-top: solid rgba(0, 0, 0, .91);
 }

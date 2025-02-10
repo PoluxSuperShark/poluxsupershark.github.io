@@ -1,3 +1,4 @@
+/* All styles (global) */
 * {
     font-family: Arial, Helvetica, sans-serif;
     list-style: none;
@@ -5,9 +6,8 @@
     color: black;
 }
 
-body {
-    background-color: #cecece;
-}
+/* Body styles  */
+body { background-color: #cecece; }
 
 main {
     margin-top: 2rem;
@@ -20,19 +20,17 @@ main {
     background-color: white;
 }
 
+/* All pseudos are red to show up them */
 code {
     color: red;
     font-family: 'Courier New', Courier, monospace;
 }
 
-
-
+/* Navbar */
 header img {
     height: 80px;
     margin-left: 40px;
-}
-
-header {
+    } header {
     background-color: white;
     position: fixed;
     top: 0;
@@ -43,29 +41,25 @@ header {
     align-items: center;
     box-shadow: 0 0 5px 0 black;
     /* margin-bottom: 5rem; */
-}
-
-header * {
+    } header * {
     display: inline;
-}
-
-header li {
+    } header li {
     margin: 20px;
-}
-
-header li a {
+    } header li a {
     color: black;
     text-decoration: none;
 }
 
+/* 
 @media screen and (min-with: 850px) {
     header nav {
         display: none;
     }
-}
+} */
 
 
 
+/* Footer (Infos, usefull links and legal and quick links) */
 footer {
     border-top: solid blue 3px;
     background-color: #ffffff;
@@ -75,46 +69,30 @@ footer {
     margin-top: 8px;
     margin-left: 10%;
     margin-right: 10%;
-}
-
-.footer-container {
+    } .footer-container {
     display: flex;
     justify-content: space-around;
     max-width: 1000px;
     margin: auto;
     padding: 20px;
-}
-
-.footer-section {
+    } .footer-section {
     flex: 1;
     margin: 0 10px;
-}
-
-.footer-section h3 {
+    } .footer-section h3 {
     border-bottom: 2px solid black;
     padding-bottom: 5px;
     margin-bottom: 10px;
-}
-
-.footer-section ul {
+    } .footer-section ul {
     list-style: none;
     padding: 0;
-}
-
-.footer-section ul li {
+    } .footer-section ul li {
     margin: 5px 0;
-}
-
-.footer-section ul li a {
+    } .footer-section ul li a {
     color: black;
     text-decoration: none;
-}
-
-.footer-section ul li a:hover {
+    } .footer-section ul li a:hover {
     text-decoration: underline;
-}
-
-footer .flexlinks a.link {
+    } footer .flexlinks a.link {
     text-decoration: underline;
     border: none;
     background-color: transparent;
