@@ -10,6 +10,7 @@ body {
 }
 
 main {
+    margin-top: 2rem;
     margin-left: 10%;
     margin-right: 10%;
     padding-left: 5%;
@@ -23,8 +24,6 @@ code {
     color: red;
     font-family: 'Courier New', Courier, monospace;
 }
-
-
 
 
 
@@ -64,8 +63,6 @@ header li a {
         display: none;
     }
 }
-
-
 
 
 

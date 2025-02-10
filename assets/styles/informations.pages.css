@@ -1,0 +1,29 @@
+@import "./styles.css";
+
+p.intro {
+    font-weight: bold;
+    } p.text_infos {
+    text-align: justify;
+    padding-left: 2rem;
+    border-left: solid blue;
+}
+
+/* ALERTE INFO  */
+.urgent {
+    background-color: red;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+/* Nom de l'éditeur en bleu et souligné */
+.editor {
+    color: blue;
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Division de section de page (Intensité de 91, comme L'une 91)*/
+.divider {
+    border-top: solid rgba(0, 0, 0, .91);
+}
