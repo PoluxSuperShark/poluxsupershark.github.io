@@ -28,6 +28,7 @@ code {
 
 /* Navbar */
 header img {
+    z-index: 1000;
     height: 80px;
     margin-left: 40px;
     } header {
@@ -50,6 +51,8 @@ header img {
     text-decoration: none;
 }
 
+
+/* ! RESPONSIVE DOES NOT WORK AT NAVBAR, WAITING TO WORK ON IT */
 /* 
 @media screen and (min-with: 850px) {
     header nav {
