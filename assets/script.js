@@ -4,7 +4,7 @@ if ("Notification" in window) {
     } else if (Notification.permission !== "denied") {
         Notification.requestPermission().then(permission => {
             if (permission === "granted") {
-                afficherNotification("Bienvenu", "Tu peux commencer à explorer les notifications !");
+                afficherNotification("Bienvenu", "Explore mon site Web");
             }
         });
     }
