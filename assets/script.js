@@ -1,24 +1,31 @@
 if ("Notification" in window) {
     if (Notification.permission === "granted") {
-        afficherNotification("Bienvenu", "Tu peux commencer à explorer les notifications !");
+        console.log("Notifications are allowed.");
+        setInterval(notifyTime, 3600000); // Notify every hour
     } else if (Notification.permission !== "denied") {
         Notification.requestPermission().then(permission => {
             if (permission === "granted") {
-                afficherNotification("Bienvenu", "Explore mon site Web");
+                console.log("Permission granted!");
+                setInterval(notifyTime, 3600000); // Notify every hour
             }
         });
     }
 }
 
-function afficherNotification(titre, corps) {
+function showNotification(title, body) {
     if (Notification.permission === "granted") {
-        const notification = new Notification(titre, {
-            body: corps,
-            icon: "/favicon.png",
+        new Notification(title, {
+            body: body,
+            icon: "https://poluxsupershark.github.io/assets/favicon.png",
         });
-
-        notification.onclick = function () {
-            window.open("https://poluxsupershark.github.io");
-        };
     }
+}
+
+function notifyTime() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const timeString = `${hours}:${minutes < 10 ? '0' + minutes : minutes}`;
+
+    showNotification("Current Time", `It's ${timeString}`);
 }
