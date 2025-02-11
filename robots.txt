@@ -1,0 +1,5 @@
+Disallow: /assets/*
+Disallow: /404.html
+Disallow: /LiCENSE
+Disallow: /README.md
+Disallow: /.gitignore
