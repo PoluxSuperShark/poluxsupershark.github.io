@@ -1,40 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/styles.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <meta name="description" content="The official website of PoluxSuperShark">
+    <meta name="keywords" content="PoluxSuperShark, L'une 91">
+    <link rel="stylesheet" href="./assets/styles/index.pages.css">
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <title>Bienvenue dans le site officiel de PoluxSuperShark !</title>
 </head>
+
 <body>
 
     <header>
-        <div class="navbar">
-            <div class="logo">
-                <a href="#">PoluxSuperShark</a>
-            </div>
-            <ul class="links">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">A propos</a></li>
-                <li><a href="#">Présentation</a></li>
-                <li><a href="#">Transports</a></li>
-                <li><a href="#">Vidéos</a></li>
-                <li><a href="#">Actualités</a></li>
-                <li><a href="#">Règlement</a></li>
-            </ul>
-            <div class="buttons">
-                <a href="#" class="action-button discord">Discord</a>
-                <a href="#" class="action-button youtube">YouTube</a>
-            </div>
-            <div class="burger-menu-button">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
+        <a href="#" class="logo">PoluxSuperShark</a>
+        <ul>
+            <li><a href="#" class="link">Accueil</a></li>
+            <li><a href="#" class="link">A propos</a></li>
+            <li><a href="#" class="link">Transports</a></li>
+            <li><a href="#" class="link">Documents</a></li>
+            <li><a href="#" class="link">Institutions</a></li>
+        </ul>
     </header>
-
-    <script src="./js/script.js"></script>
-
     
+    <main>
+
+        <div id="hero">
+            <h1>Bienvenue dans le site officiel de <code>PoluxSuperShark</code></h1>
+            <p><code>PoluxSuperShark</code> est un projet de monde RP Minecraft avec des trains et de beaux builds !</p>
+            <img src="./assets/wallpaper.png" alt="Wallpaper of PoluxSuperShark">
+        </div>
+    
+        <div class="alert-banner">
+            <div class="alert-title"   id="alert-title"></div>
+            <div class="alert-content" id="alert-content"></div>
+        </div>
+
+        <br><div class="divider"></div><br>
+
+        <div class="socials">
+            <ul><a href="#" class="link-social">YouTube</a></ul>
+            <ul><a href="#" class="link-social">Discord</a></ul>
+            <ul><a href="#" class="link-social">Twitter</a></ul>
+            <ul><a href="#" class="link-social">Github</a></ul>
+        </div>
+
+    </main>
+
+
+    <footer>
+        <div class="copyright">
+            <p>Copyright &copy; 2023 - <span class="date"></span> | All rights reserved </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript scripts -->
+    <script src="/assets/script.js"></script>
+    <script>
+        // Liste des alertes avec un titre et un message
+        const alerts = [
+            { title: "ElSombre",        content: "Un pédophile du nom de ElSombre est recherché par la police de PoluxSuperShark. Il est accusé également de drague sur la reine du serveur" },
+        ];
+
+        const titleElement = document.getElementById("alert-title");
+        const contentElement = document.getElementById("alert-content");
+
+        function changeAlert() {
+            // Sélection aléatoire d'une alerte
+            const randomAlert = alerts[Math.floor(Math.random() * alerts.length)];
+
+            // Ajoute un effet de disparition en fondu
+            titleElement.classList.add("fade");
+            contentElement.classList.add("fade");
+
+            setTimeout(() => {
+                // Change le contenu après la disparition
+                titleElement.textContent = randomAlert.title;
+                contentElement.textContent = randomAlert.content;
+
+                // Réapparaît en fondu
+                titleElement.classList.remove("fade");
+                contentElement.classList.remove("fade");
+            }, 500); // Temps de transition (doit être égal au CSS)
+        }
+
+        // Changer l'alerte toutes les 15 secondes
+        setInterval(changeAlert, 15000);
+
+        // Afficher une première alerte immédiatement
+        changeAlert();
+    </script>
+
 </body>
 </html>

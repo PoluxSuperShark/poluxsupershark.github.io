@@ -3,83 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erreur 404 Introuvable</title>
+    <title>Erreur 404 - Page non trouvée | PoluxSuperShark</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #0a6a7a;
+            color: black;
             text-align: center;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        main {
-            margin-top: 50px;
+            padding: 50px;
         }
         h1 {
-            color: #ff0000;
+            font-size: 7rem;
+            color: red;
+            margin-bottom: 20px;
         }
-        .buttons {
-            margin: 20px;
+        p {
+            font-size: 2rem;
+            margin-bottom: 30px;
         }
-        .button, .buttons a {
-            display: inline-block;
-            margin: 10px;
+        a {
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
             padding: 10px 20px;
-            text-decoration: none;
-            color: white;
-            background-color: #007BFF;
+            border: 2px solid black;
             border-radius: 5px;
-            transition: background 0.3s;
+            background-color: black;
         }
-        .button:hover, .buttons a:hover {
-            background-color: #0056b3;
+        a:hover {
+            background-color: white;
+            color: black;
+            transition: .3s ease-out;
         }
-        .legals a {
-            display: inline-block;
-            margin: 5px;
-            color: #333;
-            text-decoration: none;
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        .legals a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 50px;
-            padding: 10px;
-            color: white;
-        }
-        footer a {
-            color: white;
-            text-decoration: none;
+        .flex {
+            display: flex;
+            border-top: solid black;
+            padding-top: 1.5rem;
+        }.flex a {
+            margin-left: 2rem;
+            margin-right: 2rem;
         }
     </style>
+
+    <style>
+        div.flexlinks a.link {
+            text-decoration: underline;
+            border: none;
+            background-color: transparent;
+        }
+    </style>
+
 </head>
 <body>
 
-    <main>
-        <h1>Erreur 404, page introuvable !</h1>
-        <p>La page que vous avez recherchée n'existe pas.</p>
-        <div class="buttons">
-            <a href="/index.html" class="button">Retour à l'accueil</a>
-            <a href="https://discord.gg/ac8umUZYAW" class="button">Serveur Discord</a>
-        </div>
-        <div class="legals">
-            <a href="#">Mentions légales</a>
-            <a href="#">Conditions d'utilisation</a>
-            <a href="#">Politique vie privée</a>
-        </div>
-    </main>
 
-    <footer>
-        <p>Copyright &copy; 2023 - <span class="date"></span> | <a href="#">Tous droits réservés</a></p>
-    </footer>
+    <!-- Error 404 messages -->
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const year = new Date().getFullYear();
-            document.querySelector(".date").textContent = year;
-        });
-    </script>
-    
+    <div class="container">
+        
+        <h1>Erreur 404 <br> Page introuvable</h1>
+
+        <p>
+            Oups ! La page que tu cherches n'existe pas ou a été déplacée.
+            <br> Essayez de taper une URL différémente ou <br>
+        </p>
+
+        <div class="flex">
+            <a href="https://poluxsupershark.github.io">Retour à l'accueil</a>
+            <a href="https://discord.gg/ac8umUZYAW" target="_blank">Rejoindre le Discord</a>
+        </div>
+
+        <br>
+
+        <div class="flexlinks">
+            <a href="/pages/notice.html" class="link">Mentions légales</a>
+            <a href="/pages/terms.html" class="link">CGU</a>
+            <a href="/pages/privacy.html" class="link">Vie privée</a>
+        </div>
+
+    </div>
+
 </body>
 </html>
