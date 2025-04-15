@@ -38,11 +38,6 @@ nav li a:hover {
     border-color: red;
 }
 
-/* Container principal */
-main#container {
-    padding: 2rem;
-}
-
 /* Intro */
 .intro {
     background-color: #3030e9;
