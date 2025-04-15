@@ -1,202 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J'ai construit le Titanic dans Minecraft | PoluxSuperShark</title>
+    
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/about/titanic.about.css">
 </head>
-
-<style>
-    * {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    a {
-        color: black;
-        text-decoration: none;
-    }
-    li {
-        list-style-type: none;
-    }
-    ul {
-        margin-bottom: 2rem;
-    }
-    h1 {
-        background-color: black;
-        /* top: 0; */
-        color: white;
-        padding: 2rem;
-        text-align: center;
-    }
-</style>
-<style>
-    nav         { background-color: black; }
-    nav *       { color: white; }
-    nav a:hover { color: red; }
-
-    nav ul {
-        display: flex;
-    }
-    nav ul li {
-        margin: .5rem 1rem;
-        border: solid transparent;
-        border-left: none;
-        border-right: none;
-        /* Supprimer la bordure sur les côtés */
-        } nav ul li:hover {
-        border-bottom: solid red;
-    }
-</style>
-<style>
-    main#container {
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }
-    .intro {
-        background-color: rgb(48, 48, 233);
-    }
-    .year {
-        background-color: #cecece;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
-    .year h2 {
-        font-size: 2rem;
-        padding-left: 2rem;
-    }
-</style>
-<style>
-    .intro {
-        text-align: center;
-        color: white;
-        padding-bottom: 1rem;
-        } .intro a {
-            color: white;
-            text-decoration: underline;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* font-size: 1rem; */
-    }
-    .section {
-        background-color: blue;
-        padding: 2rem;
-        color: white;
-    }
-</style>
-
 <body>
 
     <nav>
         <ul>
-            <li><a href="#home" class="nav-link">Intro</a></li>
-            <li><a href="#years" class="nav-link">Chronologie</a></li>
-            <li><a href="#about" class="nav-link">A propos</a></li>
-            <li><a href="#gallery" class="nav-link">Gallerie</a></li>
-            <li><a href="#videos" class="nav-link">Vidéos</a></li>
+            <li><a href="#home">Intro</a></li>
+            <li><a href="#years">Chronologie</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#gallery">Galerie</a></li>
+            <li><a href="#videos">Vidéos</a></li>
         </ul>
     </nav>
 
     <main id="container">
 
-        
-
-        <div id="home" class="intro">
-
-            <h1 class="title">
-                Voici l'histoire d'un des projets les plus de la série : <br>
-                Construire fidèlement le Titanic à l'échelle 1:1 avec intérieurs...
-            </h1>
-
+        <section id="home" class="intro">
+            <h1>Le projet Titanic à l’échelle 1:1 dans Minecraft</h1>
             <p>
-                Voici toute l'histoire et l'historique de construction sur plusieurs années : <br>
-                <a href="#" target="_blank" onclick="openLinkTitanic()">Consulter le site de l'AFT</a>
+                Voici toute l’histoire de la construction : <br>
+                <a href="#" onclick="openLinkTitanic()">Consulter le site de l'AFT</a>
             </p>
-    
-            <p>Ordre chronologique de construction (Cliquer sur la liste par année pour naviguer)</p>
+            <p>Ordre chronologique de construction :</p>
+        </section>
 
-        </div>
-
-
-        <div id="years">
-
-            <h2>Le projet au fil des années de construction</h2>
-            
-            <ul class="year">
-                <li><a href="#2025" class="link">Construction en 2025</a></li><br>
-                <li><a href="#2026" class="link">Construction en 2026</a></li><br>
-                <li><a href="#2027" class="link">Construction en 2027</a></li><br>
-                <li><a href="#2028" class="link">Construction en 2028</a></li><br>
-                <li><a href="#2029" class="link">Construction en 2029</a></li><!-- Pas de saut de ligne ici -->
+        <section id="years">
+            <h2>Le projet au fil des années</h2>
+            <ul class="year-list">
+                <li><a href="#2025">2025</a></li>
+                <li><a href="#2026">2026</a></li>
+                <li><a href="#2027">2027</a></li>
+                <li><a href="#2028">2028</a></li>
+                <li><a href="#2029">2029</a></li>
             </ul>
 
-            <div class="year">
-                <h2 id="2025">2025</h2>
-                <p>14/04/2025, 23h40 : Tout commence le 14/04/2025, à 23h40 (heure d'heurt à l'iceberg du Titanic), je commence un plan pour le navire.</p>
-                <p>15/04/2025, 00h00 : Début de projet sur les plans avec Inkscape</p>
-                <p>15/04/2025, 01h05 : Début de code de cette page</p>
-                <p>15/04/2025, 01h50 : Relecture et publication de la page</p>
-                <p>15/04/2025, 02h10 : Outro de la vidéo</p>
-                <p>15/04/2025, 02h20 : Fin de vidéo</p>
-                <p>15/04/2025, 08h00 : Publication de la vidéo (Départ Carpathia vers New-York)</p>
-            </div>
+            <article id="2025" class="year">
+                <h3>2025</h3>
+                <ul>
+                    <li>14/04/2025, 23h40 : Début du projet (heure de la collision)</li>
+                    <li>15/04/2025, 00h00 : Plans avec Inkscape</li>
+                    <li>15/04/2025, 01h05 : Début du code</li>
+                    <li>15/04/2025, 01h50 : Relecture et publication</li>
+                    <li>15/04/2025, 02h10 : Outro de la vidéo</li>
+                    <li>15/04/2025, 08h00 : Publication de la vidéo</li>
+                </ul>
+            </article>
 
-            <br>
+            <!-- Autres années -->
+        </section>
 
-            <div class="year">
-                <h2>2026</h2>
-            </div>
+        <section id="about" class="section">
+            <h2>À propos du projet</h2>
+        </section>
 
-            <br>
+        <section id="gallery" class="section">
+            <h2>Galerie photos</h2>
+        </section>
 
-            <div class="year">
-                <h2>2027</h2>
-            </div>
-            
-            <br>
-
-            <div class="year">
-                <h2>2028</h2>
-            </div>
-            
-            <br>
-            
-            <div class="year">
-                <h2>2029</h2>
-            </div>
-
-        </div>
-
-        <br>
-
-        <div id="about" class="section">
-
-            <h2>A propos du projet</h2>
-
-        </div>
-
-        <div id="gallery" class="section">
-
-            <h2>Toute la gallerie et photos</h2>
-
-        </div>
-
-        <div id="videos" class="section">
-
-            <h2>Toutes les vidéos, année par année</h2>
-            <p>Les vidéos sur la construction du Titanic sont répertoriées ici</p>
-
-        </div>
+        <section id="videos" class="section">
+            <h2>Vidéos</h2>
+            <p>Les vidéos du projet sont listées ici.</p>
+        </section>
 
     </main>
 
-    <script>
-        // Script to alert on opening site
-        // Site : http://abtitanic.free.fr
-        const openLinkTitanic = () => {
-            const url = 'http://abtitanic.free.fr';
-            alert('Attention, vous allez quitter le site pour \n' + url + '\n Voulez-vous vraiment continuer ?');
-            window.open(url);
-        }
-    </script>
-
+    <script src="../../js/titanic.js"></script>
 </body>
 </html>
