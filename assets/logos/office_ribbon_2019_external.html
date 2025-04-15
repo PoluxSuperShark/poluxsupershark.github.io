@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruban Office 2019</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: #f3f3f3;
+        }
+        
+        .ribbon {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dcdcdc;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .ribbon-tabs {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .ribbon-tabs .tab {
+            padding: 10px 16px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .ribbon-tabs .tab.active {
+            border-bottom: 3px solid #0078d7;
+            color: #0078d7;
+        }
+
+        .ribbon-content {
+            display: flex;
+            padding: 8px 12px;
+        }
+
+        .ribbon-group {
+            display: flex;
+            flex-direction: row;
+            border-right: 1px solid #e0e0e0;
+            padding-right: 10px;
+            margin-right: 10px;
+        }
+
+        .icon-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .icon-button i {
+            font-size: 24px;
+            color: #0078d7;
+        }
+
+        .icon-button span {
+            font-size: 12px;
+            color: #444;
+            margin-top: 4px;
+        }
+
+        .icon-button:hover {
+            background-color: #e6f1fb;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ribbon">
+        <div class="ribbon-tabs">
+            <button class="tab active">Accueil</button>
+            <button class="tab">Insertion</button>
+            <button class="tab">Mise en page</button>
+        </div>
+        <div class="ribbon-content">
+            <div class="ribbon-group">
+                <div class="icon-button">
+                    <i class="fas fa-bold"></i>
+                    <span>Gras</span>
+                </div>
+                <div class="icon-button">
+                    <i class="fas fa-italic"></i>
+                    <span>Italique</span>
+                </div>
+            </div>
+            <div class="ribbon-group">
+                <div class="icon-button">
+                    <i class="fas fa-align-left"></i>
+                    <span>Aligner à gauche</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll(".tab");
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+                // Tu peux changer le contenu dynamique ici selon l’onglet
+            });
+        });
+    </script>
+</body>
+</html>
