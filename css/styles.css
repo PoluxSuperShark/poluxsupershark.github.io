@@ -1,3 +1,7 @@
+/* Imports de fichiers externes */
+@import "./navigation.css";     /* Navigation */
+@import "./footer.css";         /* Footer     */
+
 /* Reset de base */
 * {
     margin: 0;
