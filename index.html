@@ -1,91 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polux est en développement</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .message-container {
-            text-align: center;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 400px;
-        }
-        .period-line {
-
-        }
-    </style>
+    <title>PoluxSuperShark</title>
 </head>
 <body>
-
-<div class="message-container">
-    <h1>Site en cours de développement</h1>
-    <p id="period-line"></p>
-</div>
-
-<script>
-    // Date de début
-    const startDate = new Date('2025-02-05'); // format ISO
-
-    // Date actuelle
-    const endDate = new Date();
-
-    // Formattage des dates en format français (dd/mm/yy)
-    function formatDate(date) {
-        return date.toLocaleDateString('fr-FR', {
-            day: '2-digit',
-            month: '2-digit',
-            year: '2-digit'
-        });
-    }
-
-    // Calcul de la durée entre deux dates (approche manuelle pour afficher en mois et jours)
-    function getDuration(from, to) {
-        let years = to.getFullYear() - from.getFullYear();
-        let months = to.getMonth() - from.getMonth();
-        let days = to.getDate() - from.getDate();
-
-        if (days < 0) {
-            months--;
-            const prevMonth = new Date(to.getFullYear(), to.getMonth(), 0);
-            days += prevMonth.getDate();
-        }
-
-        if (months < 0) {
-            years--;
-            months += 12;
-        }
-
-        let result = [];
-        if (years > 0) result.push(`${years} an${years > 1 ? 's' : ''}`);
-        if (months > 0) result.push(`${months} mois`);
-        if (days > 0) result.push(`${days} jour${days > 1 ? 's' : ''}`);
-
-        return result.join(', ');
-    }
-
-    // Mise à jour du contenu HTML
-    const periodLine = document.getElementById('period-line');
-    const formattedStart = formatDate(startDate);
-    const formattedEnd = formatDate(endDate);
-    const duration = getDuration(startDate, endDate);
-
-    periodLine.textContent = `Depuis le ${formattedStart} au ${formattedEnd}, soit ${duration}.`;
-</script>
-
+    
 </body>
 </html>
