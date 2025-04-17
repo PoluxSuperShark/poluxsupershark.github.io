@@ -5,11 +5,5 @@
 /.github
 /.vscode
 
-# These folders is for in dev
-/js
-/css
-/pages
-/assets
-
 # Test files
 /_index.html
