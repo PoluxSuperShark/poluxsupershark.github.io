@@ -1,6 +1,6 @@
-/* Imports de fichiers externes               */
-@import "./navigation.css";     /* Navigation */
-@import "./footer.css";         /* Footer     */
+/* Imports de fichiers externes                       */
+@import "./components/html/header.css"; /* Navigation */
+@import "./components/html/footer.css"; /* Footer     */
 
 /* Reset de base */
 * {
