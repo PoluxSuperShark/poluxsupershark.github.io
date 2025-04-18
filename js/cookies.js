@@ -26,9 +26,12 @@
     }
 
     var document = window.document; // Docs
-    // ! IE8 ne supporte pas textContent, donc nous devons utiliser fallback pour innerText.
+    // ! IE8 ne supporte pas textContent, nous devons utiliser fallback pour innerText.
     var supportsTextContent = 'textContent' in document.body;
 
+    /**
+     * Fonction de choix des cookies
+     */
     var cookieChoices = (function () {
 
         // Information du cookie
@@ -36,8 +39,8 @@
         var cookieConsentId = 'cookieChoiceInfo';
         var dismissLinkId = 'cookieChoiceDismiss';
 
+        // Fonction pour créer la bannière
         /**
-         * Fonction pour créer la bannière
          * @param {*} cookieText 
          * @param {*} dismissText 
          * @param {*} linkText 
@@ -47,7 +50,7 @@
         function _createHeaderElement(cookieText, dismissText, linkText, linkHref) {
 
             // Styles de la modale
-            var butterBarStyles = 'position:fixed;width:100%;background-color:#CC0066;color:#FFFFFF;' +
+            var butterBarStyles = 'position:fixed;width:100%;background-color:red;color:#FFFFFF;' +
                 'font-size:12px; margin:0; left:0; bottom:0; padding:4px;z-index:1000;text-align:center;';
 
             // Elément de cookie
@@ -66,8 +69,8 @@
             return cookieConsentElement; // Retourner la bannière à l'utilisateur
         }
 
+        // Créer la modale
         /**
-         * Fonction pour créer les contenus de la modale
          * @param {*} cookieText 
          * @param {*} dismissText 
          * @param {*} linkText 
@@ -75,6 +78,10 @@
          * @returns 
          */
         function _createDialogElement(cookieText, dismissText, linkText, linkHref) {
+
+            /**
+             * Styles
+             */
             var glassStyle = 'position:fixed;width:100%;height:100%;z-index:999;' +
                 'top:0;left:0;opacity:0.5;filter:alpha(opacity=50);' +
                 'background-color:#ccc;';
@@ -107,16 +114,23 @@
             // Création de la modale
             content.appendChild(_createConsentText(cookieText));
             if (!!linkText && !!linkHref) {
-                content.appendChild(_createInformationLink(linkText, linkHref));
+                c0ontent.appendChild(_createInformationLink(linkText, linkHref));
             }
+
+            // Acceptation des cookies
             content.appendChild(dismissLink);
             dialog.appendChild(content);
             cookieConsentElement.appendChild(glassPanel);
             cookieConsentElement.appendChild(dialog);
             return cookieConsentElement;
+
         }
 
         // Afficher le texte dans la modale
+        /**
+         * @param {*} element 
+         * @param {*} text 
+         */
         function _setElementText(element, text) {
             if (supportsTextContent) {
                 element.textContent = text;
@@ -149,10 +163,15 @@
         }
 
         // Créer un lien d'information de cookies
+        /**
+         * @param {*} linkText 
+         * @param {*} linkHref 
+         * @returns 
+         */
         function _createInformationLink(linkText, linkHref) {
             var infoLink = document.createElement('a');
             _setElementText(infoLink, linkText);
-            infoLink.href = linkHref;
+            infoLink.href = linkHref; // Liens
             infoLink.target = '_blank'; // Vide
             infoLink.style.marginLeft = '8px';
             infoLink.style.color = '#FFFFFF'; // Lien de l'info en blanc
@@ -163,11 +182,11 @@
         function _dismissLinkClick() {
             _saveUserPreference();
             _removeCookieConsent();
-            return false; // Retourne faux une fois cliqué
+            return false; // Retourner faux
         }
 
+        // Montrer la modale
         /**
-         * Montrer la modale
          * @param {*} cookieText 
          * @param {*} dismissText 
          * @param {*} linkText 
@@ -180,6 +199,7 @@
                 var consentElement = (isDialog) ?
                     _createDialogElement(cookieText, dismissText, linkText, linkHref) :
                     _createHeaderElement(cookieText, dismissText, linkText, linkHref);
+                // Gestion des fragments
                 var fragment = document.createDocumentFragment();
                 fragment.appendChild(consentElement);
                 document.body.appendChild(fragment.cloneNode(true));
@@ -188,11 +208,23 @@
         }
 
         // Montrer la barre des cookies
+        /**
+         * @param {*} cookieText 
+         * @param {*} dismissText 
+         * @param {*} linkText 
+         * @param {*} linkHref 
+         */
         function showCookieConsentBar(cookieText, dismissText, linkText, linkHref) {
             _showCookieConsent(cookieText, dismissText, linkText, linkHref, false);
         }
 
         // Montrer la modale des cookies
+        /**
+         * @param {*} cookieText 
+         * @param {*} dismissText 
+         * @param {*} linkText 
+         * @param {*} linkHref 
+         */
         function showCookieConsentDialog(cookieText, dismissText, linkText, linkHref) {
             _showCookieConsent(cookieText, dismissText, linkText, linkHref, true);
         }
@@ -207,10 +239,10 @@
 
         // Sauvegarder les préférences pour 1 an
         function _saveUserPreference() {
-            var expiryDate = new Date();
-            expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+            var expiryDate = new Date(); // Créer une date pour l'expiration
+            expiryDate.setFullYear(expiryDate.getFullYear() + 1); // Eg. : 2025 + 1 = 2026
             document.cookie = cookieName + '=y; path=/; expires=' + expiryDate.toGMTString();
-            // NomCookie =y | Chemin=/ | Expiration=1year (GMT)
+            // NomCookie=y | Chemin=/ | Expiration=1year (GMT)
         }
 
 
@@ -227,46 +259,55 @@
 
     })();
 
+    // Retourner le choix des cookies
     window.cookieChoices = cookieChoices;
-    return cookieChoices; // Retourner le choix des cookies
+    return cookieChoices;
 
     
 
 })(this); // L'exécuter
 
-// Afficher la bannière de cookies si l'utilisateur n'a pas encore donné son consentement
+
+/**
+ * Afficher la bannière de cookies si l'utilisateur
+ * n'a pas encore donné son consentement
+ * Langues en français et en anglais
+ * Afficher l'acceptation
+ * Afficher le lien de politique de confidentialité
+ * Renvoyer l'utilisateur vers ladite page
+ */
 document.addEventListener('DOMContentLoaded', function () {
     
     // Lien de la politique vie privée
+    // http://poluxsupershark.github.io/pages/legal/privacy.html
     const urlsite = 'http://poluxsupershark.github.io/pages/legal/privacy.html';
 
     /**
-     * Messages en Français ou en anglais
+     * Définir les messages en fonction
+     * de la langue du navigateur (FR/EN)
      */
     const messages = {
-        fr: {
+        fr: { // En français
             text: "Ce site utilise des cookies pour la collecte et le partage de données. En poursuivant votre navigation, vous acceptez l'utilisation des cookies.",
             dismiss: "Accepter et continuer",
             policy: "Politique de confidentialité"
-        },
-        en: {
+        }, // 1
+        en: { // En anglais
             text: "This site uses cookies to collect and share data. By continuing to browse, you agree to the use of cookies.",
             dismiss: "Accept and continue",
             policy: "Privacy Policy"
-        }
+        } // 2
     };
 
-    // Détection de la langue
+    // Obtenir la langue du navigateur pour afficher le bon message
     const lang = navigator.language.startsWith('fr') ? 'fr' : 'en';
 
     // Afficher la bannière en fonction de la langue
     cookieChoices.showCookieConsentBar(
-        messages[lang].text,
-        messages[lang].dismiss,
-        messages[lang].policy,
-        urlsite /**
-            http://poluxsupershark.github.io/pages/legal/privacy.html
-        */
+        messages[lang].text,          // Contenu du texte (messages)
+        messages[lang].dismiss,       // Ignorer le message (accepter)
+        messages[lang].policy,        // Accéder à la PDC (RGPD)
+        urlsite                       // URL de la PDC
     );
 
 });
