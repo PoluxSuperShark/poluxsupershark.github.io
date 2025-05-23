@@ -1,13 +1,128 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PoluxSuperShark</title>
+<meta charset="UTF-8" />
+<title>Envoyer un message avec nom personnalisé</title>
+<style>
+  /* Reset léger */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #1e1e2f;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form#form {
+    background: #2c2c44;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(50, 50, 100, 0.7);
+    width: 100%;
+    max-width: 420px;
+  }
+
+  form#form input[type="text"],
+  form#form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    background: #444466;
+    color: #eee;
+    resize: vertical;
+    transition: background-color 0.3s ease;
+  }
+
+  form#form input[type="text"]::placeholder,
+  form#form textarea::placeholder {
+    color: #bbb;
+    font-style: italic;
+  }
+
+  form#form input[type="text"]:focus,
+  form#form textarea:focus {
+    outline: none;
+    background-color: #5a5a85;
+  }
+
+  form#form button {
+    width: 100%;
+    padding: 14px;
+    background: #4a90e2;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+  }
+
+  form#form button:hover {
+    background: #357abd;
+  }
+
+  form#form button:active {
+    background: #2a5ea8;
+  }
+</style>
 </head>
 <body>
 
-    
-    
+<form id="form" autocomplete="off">
+  <input type="text" id="name" placeholder="Pseudo" required />
+  <textarea id="message" placeholder="Taper ici pour envoyer un message" required></textarea>
+  <button type="submit">Envoyer</button>
+</form>
+
+<script>
+const webhookUrl = "https://discordapp.com/api/webhooks/1375313224764751923/NuBButAstf6KHZdhrIby_ci6NGDRjNRGuR-Rb0abE9Ed6aiFlQLQtVCc-2WZl6U3U1oG";
+
+document.getElementById("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !message) {
+    alert("Merci de remplir tous les champs !");
+    return;
+  }
+
+  const payload = {
+    username: name,
+    content: message
+  };
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      alert("Message envoyé !");
+      e.target.reset();
+    } else {
+      alert("Erreur lors de l'envoi : " + response.statusText);
+    }
+  } catch (error) {
+    alert("Erreur réseau : " + error.message);
+  }
+});
+</script>
+
 </body>
 </html>
