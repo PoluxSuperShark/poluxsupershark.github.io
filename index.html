@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d18">
+  <meta name="description" content="Découvre PoluxSuperShark : un serveur Minecraft communautaire, son univers et ses réseaux.">
+  <title>PoluxSuperShark — Serveur Minecraft</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b13;
+      --panel: rgba(17, 23, 39, .78);
+      --panel-solid: #111727;
+      --text: #f3f6ff;
+      --muted: #a6b0c6;
+      --blue: #66a8ff;
+      --cyan: #66e3e0;
+      --line: rgba(160, 185, 230, .17);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 0%, rgba(43, 103, 209, .22), transparent 38rem),
+        radial-gradient(ellipse at 90% 20%, rgba(39, 189, 195, .12), transparent 30rem),
+        var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .nav-wrap { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(8, 11, 19, .72); border-bottom: 1px solid var(--line); }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.03em; }
+    .logo {
+      display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px;
+      background: linear-gradient(135deg, #3987ff, #4ce0d8); color: #07101e;
+      box-shadow: 0 8px 28px rgba(64, 150, 255, .24); font-size: 19px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 25px; color: var(--muted); font-size: .94rem; }
+    .nav-links a:hover, .social-link:hover { color: var(--text); }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 12px 18px; border-radius: 13px; border: 1px solid var(--line);
+      background: rgba(255,255,255,.045); color: var(--text); font-weight: 700;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease; cursor: pointer;
+    }
+    .button:hover { transform: translateY(-2px); border-color: rgba(102,168,255,.6); }
+    .button.primary { color: #07101e; border: 0; background: linear-gradient(110deg, var(--blue), var(--cyan)); box-shadow: 0 12px 32px rgba(64,150,255,.18); }
+    .hero { padding: 88px 0 68px; display: grid; grid-template-columns: 1.12fr .88fr; gap: 54px; align-items: center; min-height: 570px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; color: #c4e4ff; background: rgba(74,139,255,.08); font-size: .84rem; font-weight: 700; }
+    .dot { width: 8px; height: 8px; background: #59e2a0; border-radius: 50%; box-shadow: 0 0 0 5px rgba(89,226,160,.1); }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.25rem); line-height: 1.02; letter-spacing: -.065em; margin: 24px 0 20px; max-width: 720px; }
+    .gradient-text { background: linear-gradient(100deg, #f6f8ff 10%, #8fc0ff 58%, #75e4df); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { max-width: 610px; color: var(--muted); font-size: 1.12rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .server-address { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; color: var(--muted); font-size: .9rem; }
+    .address { color: #e6efff; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; padding: 8px 11px; border-radius: 10px; border: 1px solid var(--line); background: rgba(255,255,255,.04); }
+    .hero-art { position: relative; min-height: 370px; display: grid; place-items: center; }
+    .orb { position: absolute; width: min(390px, 88vw); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 25%, rgba(91,174,255,.32), rgba(36,91,185,.12) 45%, transparent 70%); filter: blur(4px); }
+    .art-card { position: relative; width: min(390px, 100%); aspect-ratio: 1.02; border: 1px solid rgba(149,192,255,.25); border-radius: 30px; overflow: hidden; background: linear-gradient(145deg, rgba(31,48,80,.94), rgba(11,17,31,.96)); box-shadow: 0 30px 100px rgba(0,0,0,.38); }
+    .art-card:before, .art-card:after { content: ""; position: absolute; border: 1px solid rgba(114,181,255,.17); border-radius: 50%; width: 310px; height: 310px; left: 50%; top: 48%; transform: translate(-50%,-50%); }
+    .art-card:after { width: 230px; height: 230px; }
+    .stars { position: absolute; inset: 0; background-image: radial-gradient(#b8d8ff 1px, transparent 1px); background-size: 29px 29px; opacity: .23; mask-image: linear-gradient(to bottom, black, transparent); }
+    .shark { position: absolute; inset: 0; display: grid; place-items: center; font-size: clamp(7rem, 18vw, 12rem); filter: drop-shadow(0 18px 30px rgba(0,0,0,.35)); transform: rotate(-8deg); }
+    .art-caption { position: absolute; left: 22px; right: 22px; bottom: 20px; display: flex; justify-content: space-between; gap: 12px; align-items: end; }
+    .art-caption strong { display: block; font-size: 1.05rem; }
+    .art-caption span { color: #aabbd6; font-size: .82rem; }
+    section { padding: 64px 0; }
+    .section-heading { max-width: 700px; margin-bottom: 28px; }
+    .kicker { color: var(--cyan); font-size: .78rem; text-transform: uppercase; letter-spacing: .17em; font-weight: 800; }
+    h2 { font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.12; letter-spacing: -.045em; margin: 10px 0 12px; }
+    .section-heading p { color: var(--muted); margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+    .card-icon { width: 45px; height: 45px; display: grid; place-items: center; border-radius: 14px; background: rgba(88,157,255,.12); border: 1px solid rgba(105,168,255,.18); font-size: 1.3rem; margin-bottom: 17px; }
+    .card h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .discord-panel { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 25px; padding: clamp(25px, 5vw, 46px); border: 1px solid rgba(102,168,255,.28); border-radius: 28px; background: linear-gradient(115deg, rgba(40,86,156,.22), rgba(21,30,50,.8)); }
+    .discord-panel p { color: var(--muted); max-width: 650px; margin-bottom: 0; }
+    .socials { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .social-link { display: flex; align-items: center; gap: 12px; min-height: 76px; padding: 15px; border: 1px solid var(--line); border-radius: 17px; background: var(--panel); transition: transform .18s ease, border-color .18s ease; }
+    .social-link:hover { transform: translateY(-3px); border-color: rgba(102,168,255,.5); }
+    .social-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: rgba(255,255,255,.07); font-weight: 800; }
+    .social-link strong { display: block; font-size: .91rem; }
+    .social-link small { display: block; color: var(--muted); font-size: .76rem; }
+    footer { border-top: 1px solid var(--line); margin-top: 30px; padding: 26px 0 35px; color: var(--muted); font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .notice { color: #8796b0; font-size: .82rem; margin-top: 14px; }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 62px; }
+      .hero-art { min-height: 330px; }
+      .grid { grid-template-columns: 1fr; }
+      .socials { grid-template-columns: repeat(2, 1fr); }
+      .discord-panel { grid-template-columns: 1fr; }
+      .nav-links { gap: 13px; }
+      .nav-links a:not(.button) { display: none; }
+    }
+    @media (max-width: 460px) {
+      .container { width: min(100% - 28px, 1120px); }
+      nav { min-height: 68px; }
+      .brand { font-size: .9rem; }
+      .brand .logo { width: 36px; height: 36px; }
+      .hero { padding-top: 48px; }
+      .socials { grid-template-columns: 1fr; }
+      .server-address { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container" aria-label="Navigation principale">
+      <a class="brand" href="#accueil" aria-label="PoluxSuperShark, accueil">
+        <span class="logo">PS</span><span>PoluxSuperShark</span>
+      </a>
+      <div class="nav-links">
+        <a href="#univers">L'univers</a>
+        <a href="#communaute">Communauté</a>
+        <a href="#reseaux">Réseaux</a>
+        <a class="button primary" href="#rejoindre">Nous rejoindre ↗</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <header class="container hero" id="accueil">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Serveur communautaire Minecraft</div>
+        <h1>Un monde à bâtir.<br><span class="gradient-text">Des aventures à vivre.</span></h1>
+        <p class="lead">Bienvenue dans l'univers PoluxSuperShark : un serveur pensé pour jouer ensemble, construire des projets ambitieux et créer des souvenirs avec une communauté de confiance.</p>
+        <div class="hero-actions" id="rejoindre">
+          <a class="button primary" href="#communaute">Rejoindre la communauté <span aria-hidden="true">→</span></a>
+          <button class="button" id="copyIp" type="button">Copier l'adresse du serveur</button>
+        </div>
+        <div class="server-address">
+          <span>Adresse Minecraft</span>
+          <code class="address" id="serverIp">poluxsupershark.nitro.games</code>
+          <span id="copyStatus" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration décorative du serveur">
+        <div class="orb"></div>
+        <div class="art-card">
+          <div class="stars"></div>
+          <div class="shark" aria-hidden="true">🦈</div>
+          <div class="art-caption">
+            <div><strong>POLUX SUPERSHARK</strong><span>Explore · Construis · Partage</span></div>
+            <span>JAVA / MULTIJOUEUR</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="container" id="univers">
+      <div class="section-heading">
+        <div class="kicker">Notre univers</div>
+        <h2>Plus qu'un serveur Minecraft.</h2>
+        <p>Un espace pour imaginer une ville, développer des infrastructures et donner vie à des projets collectifs, à notre rythme.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🏙️</div>
+          <h3>Construire ensemble</h3>
+          <p>Des quartiers, des bâtiments et des lieux de vie qui évoluent grâce aux idées des joueurs.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🚆</div>
+          <h3>Un réseau à développer</h3>
+          <p>Imagine et développe des transports, des gares et des connexions entre les différents pôles de la ville.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🤝</div>
+          <h3>Une communauté privée</h3>
+          <p>Un serveur à taille humaine, basé sur le respect, l'entraide et le plaisir de jouer avec des personnes que l'on connaît.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="communaute">
+      <div class="discord-panel">
+        <div>
+          <div class="kicker">Restons connectés</div>
+          <h2>La communauté continue sur Discord.</h2>
+          <p>Retrouve les annonces, échange avec les autres membres, prépare les projets et rejoins les discussions vocales pendant les sessions de jeu.</p>
+          <p class="notice">Le lien Discord ci-dessous est un exemple à remplacer par ton invitation réelle.</p>
+        </div>
+        <a class="button primary" href="https://discord.com/" target="_blank" rel="noopener noreferrer" id="discordLink">Ouvrir Discord ↗</a>
+      </div>
+    </section>
+
+    <section class="container" id="reseaux">
+      <div class="section-heading">
+        <div class="kicker">Suivre le projet</div>
+        <h2>Tous les réseaux, au même endroit.</h2>
+        <p>Retrouve les vidéos, les créations et les nouvelles du serveur. Remplace les liens d'exemple par tes vrais profils.</p>
+      </div>
+      <div class="socials">
+        <a class="social-link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><span class="social-icon">▶</span><span><strong>YouTube</strong><small>Vidéos & aventures</small></span></a>
+        <a class="social-link" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer"><span class="social-icon">♪</span><span><strong>TikTok</strong><small>Clips & extraits</small></span></a>
+        <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><span class="social-icon">◎</span><span><strong>Instagram</strong><small>Images & coulisses</small></span></a>
+        <a class="social-link" href="https://www.twitch.tv/" target="_blank" rel="noopener noreferrer"><span class="social-icon">▣</span><span><strong>Twitch</strong><small>Directs</small></span></a>
+        <a class="social-link" href="https://github.com/" target="_blank" rel="noopener noreferrer"><span class="social-icon">⌘</span><span><strong>GitHub</strong><small>Projets & site web</small></span></a>
+      </div>
+      <p class="notice">Les liens YouTube, TikTok, Instagram, Twitch et GitHub pointent actuellement vers les pages d'accueil officielles. Personnalise-les avec tes comptes avant publication.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> PoluxSuperShark</span>
+      <span>Un projet communautaire Minecraft · Fait pour jouer ensemble.</span>
+    </div>
+  </footer>
+
+  <script>
+    const ip = "poluxsupershark.nitro.games";
+    const copyButton = document.getElementById("copyIp");
+    const copyStatus = document.getElementById("copyStatus");
+    copyButton.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(ip);
+        copyStatus.textContent = "Adresse copiée !";
+      } catch (error) {
+        copyStatus.textContent = "Copie impossible : sélectionne l'adresse ci-dessus.";
+      }
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
